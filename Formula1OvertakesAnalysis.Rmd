@@ -1,0 +1,595 @@
+---
+title: "Formula 1 Overtakes Analysis"
+author: "Alessandro Relato"
+date: "2025-05-21"
+output: pdf_document
+---
+
+```{r setup, include=FALSE}
+knitr::opts_chunk$set(echo = TRUE)
+```
+
+# Formula 1 Overtakes Analysis
+
+## Introduction
+
+With this project I aim to study and analyze the overtakes happened in Formula 1 from 1994 to 2020. I will do two types of analysis: one general analysis with a single graph that includes all the overtakes together and one year per year with 27 graphs and compare the results to see how overtakes has changed during the years.
+The overtakes in this analysis include only the overtakes done on track (no overtakes done thanks to the strategy during the pit stops). The overtakes during the start have not been calculated because the start is always a mess and the overtakes happened thanks to an error made by one driver are not calculated too (only the unforced errors).
+
+## The dataset
+
+The general graph is a weighted and directed graph and has X nodes and Y edges. The annual graphs are weighted and directed as well and have less nodes, about twenty each one.
+All these graph are created from a dataset containing all the information about overtakes on those years. I extract only the ones that I needed (name of overtaker, name of overtakee and year) and then I turned them into nodes and edges.
+
+```{r message=FALSE, warning=FALSE}
+library(dplyr)
+library(ggplot2)
+library(igraph)
+library(tidygraph)
+library(ggraph)
+library(tibble)
+library(tidyr)
+```
+```{r}
+# Importing and creating general graph
+nodes_general <- read.csv("nodes.csv", encoding = "UTF-8")
+edges_general <- read.csv("edges.csv", encoding = "UTF-8")
+g <- graph_from_data_frame(d = edges_general, vertices = nodes_general, directed = TRUE)
+
+# Importing and creating annual graphs
+g_yearly <- list()
+for(year in 1994:2020) {
+  nodes_year <- read.csv(paste0("yearly/", year, " nodes.csv"), encoding = "UTF-8")
+  edges_year <- read.csv(paste0("yearly/", year, " edges.csv"), encoding = "UTF-8")
+  g_yearly[[as.character(year)]] <- graph_from_data_frame(d = edges_year,
+                                                          vertices = nodes_year, directed = TRUE)
+}
+
+# Example graph (plot of data from 1994)
+ggraph(g_yearly[["1994"]], layout = "graphopt", niter = 5000) + 
+    geom_edge_link(end_cap = circle(2, "mm"), start_cap = circle(2, "mm"),
+                   arrow = arrow(type = "closed", length = unit(3, "mm"))) +
+    geom_node_point(color = "red", size = 5) + 
+    geom_node_label(aes(label = name), repel = TRUE)
+```
+
+## General infos
+
+```{r}
+# Calculating general data
+infos <- matrix(NA, nrow = length(g_yearly), ncol = 4)
+colnames(infos) <- c("Nodes", "Edges", "Density", "Reciprocity")
+rownames(infos) <- names(g_yearly)
+for(year in 1994:2020) {
+  infos[as.character(year), "Nodes"] <- vcount(g_yearly[[as.character(year)]])
+  infos[as.character(year), "Edges"] <- ecount(g_yearly[[as.character(year)]])
+  infos[as.character(year), "Density"] <- edge_density(g_yearly[[as.character(year)]])
+  infos[as.character(year), "Reciprocity"] <- reciprocity(g_yearly[[as.character(year)]])
+}
+
+variance <- c(var(infos[, "Nodes"]), var(infos[, "Edges"]), var(infos[, "Density"]),
+              var(infos[, "Reciprocity"]))
+media <- c(mean(infos[, "Nodes"]), mean(infos[, "Edges"]), mean(infos[, "Density"]),
+           mean(infos[, "Reciprocity"]))
+infos <- rbind(infos, media)
+infos <- rbind(infos, variance)
+infos <- rbind(infos, c(vcount(g), ecount(g), edge_density(g), reciprocity(g)))
+rownames(infos) <- c(names(g_yearly), "Mean", "Variance", "General")
+infos
+```
+
+In this table I summarized the general info for all the graph and for the general one. I also add the mean and the variance calculated on the annual graphs.
+As we can see the variance of reciprocity and density is low, so even if the number of nodes and edges are different there is a common structure.
+Obviously in the general graph the density is lower because we have much more nodes and the edges are only between drivers that has competed in the same years. On the other hand the reciprocity is higher because some drivers may overtook another one in one season but never in the previous or in the following season.
+As we can see the density values are not high, in fact the mean is 0.4. I was expecting that because the data does not include lapping, so the top drivers have not a lot of connections with the drivers on the back of the grid.
+Talking about reciprocity, instead, I was expecting to find it a little bit higher because usually there are some groups of drivers that overtake each other during a season (top drivers, mid-field, guys in the back).
+
+## Centrality analysis
+### Degree centrality
+
+```{r}
+# Degree
+cen_degree <- matrix(NA, nrow = length(g_yearly), ncol = 10)
+colnames(cen_degree) <- c("Max in", "Max in Name", "Min in", "Min in Name",
+                          "Mean in", "Max out", "Max out Name", "Min out", "Min out Name", "Mean out")
+rownames(cen_degree) <- names(g_yearly)
+for(year in 1994:2020) {
+  cen_degree[as.character(year), "Max in"] <- max(degree(g_yearly[[as.character(year)]],
+                                                         mode = "in"))
+  cen_degree[as.character(year), "Max out"] <- max(degree(g_yearly[[as.character(year)]],
+                                                          mode = "out"))
+  cen_degree[as.character(year), "Min in"] <- min(degree(g_yearly[[as.character(year)]],
+                                                         mode = "in"))
+  cen_degree[as.character(year), "Min out"] <- min(degree(g_yearly[[as.character(year)]],
+                                                          mode = "out"))
+  cen_degree[as.character(year), "Mean in"] <- mean(degree(g_yearly[[as.character(year)]],
+                                                           mode = "in"))
+  cen_degree[as.character(year), "Mean out"] <- mean(degree(g_yearly[[as.character(year)]],
+                                                            mode = "out"))
+  cen_degree[as.character(year), "Min in Name"] <- names(sort(
+                                                    degree(g_yearly[[as.character(year)]],
+                                                           mode = "in")))[[1]]
+  cen_degree[as.character(year), "Max in Name"] <- names(sort(
+                                                    degree(g_yearly[[as.character(year)]],
+                                                           mode = "in"), decreasing = TRUE))[[1]]
+  cen_degree[as.character(year), "Min out Name"] <- names(sort(
+                                                    degree(g_yearly[[as.character(year)]],
+                                                           mode = "out")))[[1]]
+  cen_degree[as.character(year), "Max out Name"] <- names(sort(
+                                                    degree(g_yearly[[as.character(year)]],
+                                                           mode = "out"), decreasing = TRUE))[[1]]
+}
+cen_degree <- rbind(cen_degree, c(max(degree(g, mode = "in")), names(sort(
+                                                                  degree(g, mode = "in"),
+                                                                  decreasing = TRUE))[[1]],
+                                  min(degree(g, mode = "in")), names(sort(
+                                                                  degree(g, mode = "in")))[[1]],
+                                  mean(degree(g, mode = "in")),
+                                  max(degree(g, mode = "out")), names(sort(
+                                                                  degree(g,
+                                                                      mode = "out"),
+                                                                      decreasing = TRUE))[[1]],
+                                  min(degree(g, mode = "out")), names(sort(
+                                                                  degree(g,
+                                                                      mode = "out")))[[1]],
+                                  mean(degree(g, mode = "out"))))
+rownames(cen_degree) <- c(names(g_yearly), "General")
+cen_degree
+
+print("Degree in:")
+sort(degree(g, mode = "in"), decreasing = TRUE)
+
+print("Degree out:")
+sort(degree(g, mode = "out"), decreasing = TRUE)
+```
+
+Watching the table we can see that in some season the minimum degree is 0.
+Talking about the in degree we can see that in the most of the years the least overtook is a top driver (sometimes even with 0 overtakes taken). Probably this could mean that in that year he had a very fast car and he was able to dominate or had a car which was in the middle of other cars (talking about performance) but was not close enough to battle with them. Watching the near column of the most overtaken we can see that every year this column has a name of a mid-low field driver. I was expecting this because those are the zones of the grid in which happen the most of the battles during the races because both drivers and cars have similar performances.
+Moving to the out degree the one that overtook less in every year except one was a low field driver, which can easily be explained because there is always a team with a slow car (compared to others) and because of that has a lot of struggle in overtaking. The only exception is Hakkinen in the 1998 season, in which he has a very strong car that permitted him to stay out of battles.
+on the other hand, that year, we have Coulthard as the one who made more overtakes which is a sort of contraddiction because Coulthard and Hakkinen drove for the same team. The other seasons the driver with most overtakes is a mid field driver or a "follow-up" driver (a driver that fought for the title till the end of the season but had not the fastest car or a driver which drove for the second/third fastest team that year). Because in almost every year there is a fastest car and other teams try to catch up during the season or are few tenths behind, this makes it so the drivers of the best team have an easier life than others during the races. Instead the follow-up drivers need to fight for thei position overtaking more cars.
+
+Analyzing how graphs evolved during the years we can see that in the last second half we have less 0 in the in degree minimum column. That means that the races are more fought. We can come to this conclusion also watching at the columns with the mean of degrees: during the years the mean of degrees has increased for both in and out degree. With this data we can say that the federation has done a great job in increasing the show that Formula 1 races bring.
+
+Moving on the general graph it has obviously 0 in both in and out minimum degree.
+Watching the degree lists the first things that comes to my eyes is that the two lists have 5 drivers in common in the first 9. Thinking about it I can say that it makes a lot of sense because are drivers which are (or have been) often in the first half of the grid, but have never had a dominating season, this means they always had to fight for their positions.
+If we search the drivers that dominated the most of the season in analysis (Schumacher, Vettel, Hamilton) we can find them in the top of the degree out list (they overtook a lot), but to find them in the degree in list we need to go down to the 25 position to find the first of them, which is Schumacher.
+
+### Betweenness centrality
+
+```{r}
+# Betweenness
+cen_bet <- matrix(NA, nrow = length(g_yearly), ncol = 5)
+colnames(cen_bet) <- c("Max", "Max Name", "Min", "Min Name", "Mean")
+rownames(cen_bet) <- names(g_yearly)
+for(year in 1994:2020) {
+  cen_bet[as.character(year), "Max"] <- max(betweenness(g_yearly[[as.character(year)]],
+                                                        directed = TRUE))
+  cen_bet[as.character(year), "Max Name"] <- names(sort(betweenness(g_yearly[[as.character(year)]],
+                                                                    directed = TRUE), decreasing = TRUE))[[1]]
+  cen_bet[as.character(year), "Min"] <- min(betweenness(g_yearly[[as.character(year)]],
+                                                        directed = TRUE))
+  cen_bet[as.character(year), "Min Name"] <- names(sort(betweenness(g_yearly[[as.character(year)]],
+                                                                    directed = TRUE)))[[1]]
+  cen_bet[as.character(year), "Mean"] <- mean(betweenness(g_yearly[[as.character(year)]],
+                                                          directed = TRUE))
+}
+cen_bet <- rbind(cen_bet, c(max(betweenness(g, directed = TRUE)), names(sort(
+                      betweenness(g, directed = TRUE), decreasing = TRUE))[[1]],
+                            min(betweenness(g, directed = TRUE)), names(sort(
+                              betweenness(g, directed = TRUE)))[[1]],
+                            mean(betweenness(g, directed = TRUE))))
+rownames(cen_bet) <- c(names(g_yearly), "General")
+cen_bet
+
+sort(betweenness(g, directed = TRUE), decreasing = TRUE)
+```
+
+Starting with the minimum betweenness we can see that almost every year there is a 0 on the value table; looking at the names we can see that again almost every year there is a low field driver. There are a few exception of top drivers probably because they never had problems during the season, so they fought only against other top drivers or because they have dominated the season.
+The low field drivers have probably the same reason but reversed: they had the slowest car so they only fought between team mates or other low field drivers that never had an exploit in that season.
+Moving on the highest values we can find all mid field drivers without any exception. This is exactly what I was excepting because these driver can have a very good week-end and battle even for the podium or can have a really bad week-end and battle with the low field drivers, that said it is easy to understand why they are there.
+
+Opposed to the degree centrality analyzing how the betweenness changed during the years, it shows up that both the mean and the max value have decreased. The max value has a trend but it is has more up and downs than the mean, which has a very clear trend. This could mean that, combined with data from the degree analysis, the races are more fun to watch because there are more overtakes, but there is less chance to see an exploit both positive and negative one.
+
+### Page Rank
+
+```{r}
+# PageRank
+cen_pr <- matrix(NA, nrow = length(g_yearly), ncol = 5)
+colnames(cen_pr) <- c("Max", "Max Name", "Min", "Min Name", "Mean")
+rownames(cen_pr) <- names(g_yearly)
+for(year in 1994:2020) {
+  cen_pr[as.character(year), "Max"] <- max(page_rank(g_yearly[[as.character(year)]])$vector)
+  cen_pr[as.character(year), "Max Name"] <- names(sort(page_rank(
+                                              g_yearly[[as.character(year)]])$vector,
+                                              decreasing = TRUE))[[1]]
+  cen_pr[as.character(year), "Min"] <- min(page_rank(g_yearly[[as.character(year)]])$vector)
+  cen_pr[as.character(year), "Min Name"] <- names(sort(page_rank(
+                                            g_yearly[[as.character(year)]])$vector))[[1]]
+  cen_pr[as.character(year), "Mean"] <- mean(page_rank(g_yearly[[as.character(year)]])$vector)
+}
+cen_pr <- rbind(cen_pr, c(max(page_rank(g)$vector), names(sort(page_rank(g)$vector,
+                                                               decreasing = TRUE))[[1]],
+                          min(page_rank(g)$vector), names(sort(page_rank(g)$vector))[[1]],
+                          mean(page_rank(g)$vector)))
+rownames(cen_pr) <- c(names(g_yearly), "General")
+cen_pr
+
+sort(page_rank(g)$vector, decreasing = TRUE)
+```
+
+As we can see the majority of drivers with the highest PageRank value during the years are mid/low field drivers because, like we have seen in the previous centrality analysis, these are the areas where most of overtakes happen. This means that those drivers has a high number of in-links and those link come from other nodes with high PageRank. On the other side, the drivers with the lowest values are drivers from the very top or from the very bottom of the grid because in those areas there are less overtakes which means less in-links.
+Analyzing the values of the general graph, instead, we can see that there are some differences because in this graph the in-links are influenced not only by the overtakes in one single season but in multiple seasons. This means that a driver that raced for 15 years probably has a higher PageRank than a driver that raced in only one season but its has been overtaken a lot. In fact we can see that the drivers with lower PageRank are drivers that raced for just few years mixed with drivers in the very top or very bottom of the grid. Instead between the ones with high values we can find both drivers from mid field and drivers that raced for most of the years of this sample.
+
+### Temporal analysis
+
+```{r}
+# Creating the plot to show the temporal trend of centralities
+temporal_matrix <- matrix(NA, nrow = length(g_yearly), ncol = 4)
+colnames(temporal_matrix) <- c("Degree in", "Degree out", "Betweenness", "PageRank")
+rownames(temporal_matrix) <- names(g_yearly)
+
+for(year in 1994:2020) {
+  temporal_matrix[as.character(year), "Degree in"] <- cen_degree[as.character(year), "Mean in"]
+  temporal_matrix[as.character(year), "Degree out"] <- cen_degree[as.character(year), "Mean out"]
+  temporal_matrix[as.character(year), "Betweenness"] <- cen_bet[as.character(year), "Mean"]
+  temporal_matrix[as.character(year), "PageRank"] <- cen_pr[as.character(year), "Mean"]
+}
+
+df <- as.data.frame(temporal_matrix)
+df <- rownames_to_column(df, var = "Year")
+df_long <- pivot_longer(
+  df,
+  cols = c("Degree in", "Degree out", Betweenness, PageRank),
+  names_to = "Index",
+  values_to = "Value"
+)
+df_long$Value <- as.numeric(df_long$Value)
+df_long$Index <- factor(df_long$Index, levels = c("Degree in", "Degree out",
+                                                  "Betweenness", "PageRank"))
+
+ggplot(df_long, aes(x = Year, y = Value, group = Index)) +
+  geom_line() +
+  geom_point() +
+  facet_wrap(~Index, ncol = 2, scales = "free_y", strip.position = "top", axes = "all") +
+  scale_y_continuous(breaks = scales::pretty_breaks(n = 5)) +
+  theme_classic(base_size = 14) +
+  theme(strip.placement = "outside",
+        panel.spacing = unit(1.5, "lines"),
+        strip.text = element_text(size = 12, face = "bold"),
+        axis.text.x = element_text(size = 9.3, angle = 90, vjust = 0.5, hjust = 1),
+        axis.text.y = element_text(size = 10),
+        axis.title.x = element_text(size = 12, face = "bold"),
+        axis.title.y = element_text(size = 12, face = "bold"))
+```
+
+As we saw in the tables with numeric values, the graphs expose in a  better way the change during the years. We can see a clear increasing trend in the Degree centrality until 2012 and then a little decrease. Talking about the PageRank we can still see an increasing trend, but it less clean, with more up and downs.
+On the other hand, we have a clear decreasing trend for the Betweenness centrality, with some outliers, but mostly in the early years of the sample.
+
+This means that the action during the races has increased (there are more total overtakes), and it is more various.
+The Betweenness decreasing means that there are more paths that link two nodes which do not pass through a single node. So the drivers tend to overtake not only some drivers that have a similar potential, but sometimes overtake drivers from a different zone of the grid.
+That said, we can say that the work the FIA is doing to increase the show during the races is working and the teams reached a very high level of preparation allowing the drivers to make much more exploit.
+
+## Community analysis
+
+```{r warning=FALSE}
+methods <- list(
+  "Edge Betweenness" = cluster_edge_betweenness,
+  "Fast Greedy" = cluster_fast_greedy,
+  "Label Propagation" = cluster_label_prop,
+  "Leading Eigenvector" = cluster_leading_eigen,
+  "Louvain" = cluster_louvain,
+  "Walktrap" = cluster_walktrap,
+  "Spinglass" = function(graph) cluster_spinglass(graph, spins = 10),
+  "Infomap" = cluster_infomap,
+  "Optimal" = cluster_optimal
+)
+
+# Compute modularity for each method
+results <- data.frame(Method = character(), Modularity = numeric(), stringsAsFactors = FALSE)
+
+for (method in names(methods)) {
+  tryCatch({
+    # Detect communities
+    communities <- methods[[method]](g_yearly[["1994"]])
+    
+    # Compute modularity
+    modularity_value <- modularity(communities)
+    
+    # Store the result
+    results <- rbind(results, data.frame(Method = method, Modularity = modularity_value))
+  }, error = function(e) {
+    # Handle any errors (e.g., if a method is not applicable)
+    cat("Error with method:", method, "\n")
+  })
+}
+
+# Sort results by modularity in decreasing order
+results <- results[order(-results$Modularity), ]
+
+# Print the results
+results
+```
+
+To analyze the communities, I decided to use the Spinglass algorithm because in the test that I have done above there was not a big difference between the Optimal and the Spinglass algorithms. So I decided to use the one who uses less time and resources to compute.
+
+```{r warning=FALSE}
+# Community detection with Spinglass algorithm
+modularity_general <- modularity(methods[["Spinglass"]](g))
+modularity_yearly <- c()
+for (year in 1994:2020) {
+  modularity_yearly <- c(modularity_yearly, modularity(methods[["Spinglass"]](
+                                            g_yearly[[as.character(year)]])))
+}
+names(modularity_yearly) <- names(g_yearly)
+
+modularity_general
+```
+
+```{r}
+# Plot the annual trend of modularity
+modularity_df <- as.data.frame(modularity_yearly)
+modularity_df <- rownames_to_column(modularity_df, var = "Year")
+colnames(modularity_df)[2] <- "Modularity"
+modularity_df$Modularity <- as.numeric(modularity_df$Modularity)
+
+ggplot(modularity_df, aes(x = Year, y = Modularity, group = 1)) +
+  geom_point() +
+  geom_line() +
+  scale_y_continuous(breaks = scales::pretty_breaks(n = 5)) +
+  theme_classic(base_size = 14) +
+  theme(axis.text.x = element_text(angle = 90, vjust = 0.5, hjust = 1),
+        axis.title.x = element_text(size = 12, face = "bold"),
+        axis.title.y = element_text(size = 12, face = "bold"))
+
+```
+
+As we can see from the data, the modularity value for every graph is pretty low. It is positive tho, so the number of edges between nodes of the same community is higher than the same value in a random graph. This means that drivers tend to form groups in which the overtakes happen more frequently inside than outside of the groups. But the low values means that this groups are not that defined (there are groups, but there are also a lot of edges that go from one group to another).
+Looking at the graph, this trend has decreased during the years, which is something that I was expecting. Because, as I said earlier talking about centrality, with the degree and PageRank centrality increasing and the betweenness decreasing, the number of paths that link two nodes has increased, so it is less common for a node to be in the majority of those paths.
+
+## Connectivity
+
+```{r}
+# Finding giant component for each graph
+giant_general <- c(max(components(g, mode="strong")$csize), 100*max(components(
+                                                  g, mode="strong")$csize)/vcount(g))
+names(giant_general) <- c("C Size", "C Size%")
+
+giant_yearly <- matrix(NA, nrow = length(g_yearly), ncol = 2)
+rownames(giant_yearly) <- names(g_yearly)
+colnames(giant_yearly) <- c("C Size", "C Size%")
+for (year in 1994:2020) {
+  giant_yearly[as.character(year), "C Size"] <- max(components(g_yearly[[as.character(year)]],
+                                                               mode="strong")$csize)
+  giant_yearly[as.character(year), "C Size%"] <- 100*(giant_yearly[as.character(year),
+                                                "C Size"]/vcount(g_yearly[[as.character(year)]]))
+}
+
+giant_general <- round(giant_general, 2)
+giant_yearly <- round(giant_yearly, 2)
+
+giant_general
+
+giant_yearly
+```
+
+We can see that the percentage of nodes in the giant strongly connected component is very high for every graph. Every year has at least 70% of nodes in the strongly connected component.
+This is a good news for the FIA because it means that the chain of overtakes reaches the majority of drivers.
+The result meets my expectations, especially after the result of modularity analysis. Because the communities exist but are not isolated, this means that there are a few extra-community edges which contribute to enlarge the connected component.
+
+## Resiliencce
+
+```{r}
+# percolation removes nodes from a graph and computes 
+# the size of the giant connected component
+# INPUT
+# g: graph to percolate
+# size: number of nodes to remove 
+# d: removal vector
+# OUTPUT
+# giant: a vector with sizes of giant components when nodes are removed
+percolate = function(g, size, d) {
+  
+  giant = vector()
+  
+  # initial size of giant component
+  c = components(g)
+  giant[1] = max(c$csize)
+  
+  # find vital nodes
+  names(d) = 1:length(d)
+  d = sort(d, decreasing=TRUE)
+  vital = as.integer(names(d[1:size]))
+  
+  # compoute size of giant component after incremental removal 
+  for (i in 1:size) {
+    c = components(delete_vertices(g, vital[1:i]))
+    giant[i+1] = max(c$csize)
+  }
+  
+  return(giant)
+  
+}
+
+# percolation of general graph
+size = vcount(g)/2
+# random
+rand = percolate(g, size, d = sample(V(g), size))
+# degree
+deg = percolate(g, size, d = degree(g))
+# pagerank
+pr = percolate(g, size, d=page_rank(g)$vector)
+# betweenness
+bet = percolate(g, size, d = betweenness(g))
+
+plot(0:size, deg, type = "l", col=1, 
+     xlab="Number of removed nodes", 
+     ylab="Size of giant component")
+lines(0:size, pr, col=2)
+lines(0:size, bet, col=3)
+lines(0:size, rand, col=4)
+lines(0:size, rep(vcount(g)/2, size+1), lty=2)
+legend(x = "bottomleft", 
+       legend = c("deg", "pr", "btw", "rand"), lty = 1, col = 1:4)
+```
+
+As we can see from the plot, the general graph is very resilient. In fact it would be heavily damaged only by an attack that follow the degree centrality and the betweenness centrality. Both of them start to be effective only after more than 50 nodes removed.
+In particular the degree attack is the first one to cause the damage, as we can see looking at the black line, after the removal of the 60th node causing a drop in the dimension of the giant component (from near 100 to near 70).
+The betweenness attack, instead, is effective only after the 70th node removed, but it causes a bigger drop in the dimension of the giant component (from 80 to near 40).
+To see if the annual graphs have the same resilience, I decided to analyze a sample of them. I did not analyze them all because we saw in the previous analysis that they are pretty similar. To choose the sample I took the graph with the least percentage of nodes in the giant component, one from the ones who have 100% of nodes in the giant component and one in the middle (with the percentage around 85%)
+
+```{r}
+# percolation of one annual graph (1994) (72,5%)
+size = vcount(g_yearly[["1994"]])/2
+# random
+rand = percolate(g_yearly[["1994"]], size, d = sample(V(g_yearly[["1994"]]), size))
+# degree
+deg = percolate(g_yearly[["1994"]], size, d = degree(g_yearly[["1994"]]))
+# pagerank
+pr = percolate(g_yearly[["1994"]], size, d=page_rank(g_yearly[["1994"]])$vector)
+# betweenness
+bet = percolate(g_yearly[["1994"]], size, d = betweenness(g_yearly[["1994"]]))
+
+plot(0:size, deg, type = "l", col=1, 
+    xlab="Number of removed nodes", 
+    ylab="Size of giant component",
+    main = "1994 graph")
+lines(0:size, pr, col=2)
+lines(0:size, bet, col=3)
+lines(0:size, rand, col=4)
+lines(0:size, rep(vcount(g_yearly[["1994"]])/2, size+1), lty=2)
+legend(x = "bottomleft", 
+       legend = c("deg", "pr", "btw", "rand"), lty = 1, col = 1:4)
+
+# percolation of one annual graph (2008) (100%)
+size = vcount(g_yearly[["2008"]])/2
+# random
+rand = percolate(g_yearly[["2008"]], size, d = sample(V(g_yearly[["2008"]]), size))
+# degree
+deg = percolate(g_yearly[["2008"]], size, d = degree(g_yearly[["2008"]]))
+# pagerank
+pr = percolate(g_yearly[["2008"]], size, d=page_rank(g_yearly[["2008"]])$vector)
+# betweenness
+bet = percolate(g_yearly[["2008"]], size, d = betweenness(g_yearly[["2008"]]))
+
+plot(0:size, deg, type = "l", col=1, 
+    xlab="Number of removed nodes", 
+    ylab="Size of giant component",
+    main = "2008 graph")
+lines(0:size, pr, col=2)
+lines(0:size, bet, col=3)
+lines(0:size, rand, col=4)
+lines(0:size, rep(vcount(g_yearly[["2007"]])/2, size+1), lty=2)
+legend(x = "bottomleft", 
+       legend = c("deg", "pr", "btw", "rand"), lty = 1, col = 1:4)
+
+# percolation of one annual graph (2017) (83,33%)
+size = vcount(g_yearly[["2017"]])/2
+# random
+rand = percolate(g_yearly[["2017"]], size, d = sample(V(g_yearly[["2017"]]), size))
+# degree
+deg = percolate(g_yearly[["2017"]], size, d = degree(g_yearly[["2017"]]))
+# pagerank
+pr = percolate(g_yearly[["2017"]], size, d=page_rank(g_yearly[["2017"]])$vector)
+# betweenness
+bet = percolate(g_yearly[["2017"]], size, d = betweenness(g_yearly[["2017"]]))
+
+plot(0:size, deg, type = "l", col=1, 
+     xlab="Number of removed nodes", 
+     ylab="Size of giant component",
+    main = "2017 graph")
+lines(0:size, pr, col=2)
+lines(0:size, bet, col=3)
+lines(0:size, rand, col=4)
+lines(0:size, rep(vcount(g_yearly[["2020"]])/2, size+1), lty=2)
+legend(x = "bottomleft", 
+       legend = c("deg", "pr", "btw", "rand"), lty = 1, col = 1:4)
+```
+
+Looking at the plots we can see that these graph are even more resilient than the general.
+Analyzing them in order, we have the 1994 graph that is resilient, but suffers a little bit the attacks made following the degree and the betweenness centrality. There are no drops, but the lines of this two types of attacks are more sharp than the other two at the start. The PageRank attack starts with a lot of difficulty, even more than the random one at a certain point. Then has a little drop, after 5 nodes, reaching the effectiveness of the degree and the betweenness, but then it gets worse and reaches again the random attack.
+In the 2008 graph, as we could have expected, all the attacks has the same effectiveness because with a giant component that covers the totality of the graph every node means that there is only 1 node less than the previous removal.
+Last but not least, we have the 2017 graph, which is the most resilient, in fact the giant component (after the removal of half of the nodes) is just smaller than the half of the graph. It is interesting to see that after the first 2 removals the more effective attack is the random one, shortly reached by the betweenness one. With the PageRank that is the last to reach that level of effectiveness. In the second half of removals the organised attacks (Degree, PageRank and Betweenness) return to be more effective than the random.
+
+## Distances and Degree distribution
+
+### Mean distances and diameters
+
+```{r}
+# Mean distance and diameter
+distance_general <- c(mean_distance(g), diameter(g))
+names(distance_general) <- c("Mean distance", "Diameter")
+
+distance_yearly <- matrix(NA, nrow = length(g_yearly), ncol = 2)
+rownames(distance_yearly) <- names(g_yearly)
+colnames(distance_yearly) <- c("Mean distance", "Diameter")
+for (year in 1994:2020) {
+  distance_yearly[as.character(year), "Mean distance"] <- mean_distance(
+                                                          g_yearly[[as.character(year)]])
+  distance_yearly[as.character(year), "Diameter"] <- diameter(g_yearly[[as.character(year)]])
+}
+distance_general <- round(distance_general, 2)
+distance_yearly <- round(distance_yearly, 2)
+
+distance_general
+
+distance_yearly
+```
+
+Looking at the table, we can see that the mean distances are very low in every graph.
+In the general graph there is a mean distance of 3, which is very low considering that the graph has 161 nodes and almost 4000 edges. The diameter is a little bit longer, but not comparable to the total number of nodes.
+The annual graphs have a very low mean distance, in almost every year, but 2, the mean distance is less than 2. The diameters are between 3 and 6, with a majority of 4 and 5.
+After this analysis we can say that these graph are small worlds, because both the mean distances and the diameters are very low.
+
+After having defined the small worlds, we can analyze the degree distribution to see if it is also a scale free network. To be so the degree distribution has to be a power law.
+
+### Degree distribution
+
+```{r}
+# Cumulative distribution
+ccdf = function(d) {
+  n = length(d)
+  max = max(d)
+  p = rep(0, max)
+  for (i in 1:length(p)) {
+    p[i] = length(d[d >= i]) / n
+  } 
+  return(p)
+}
+
+par(mfrow = c(2, 2))
+# Degree distribution (general)
+hist(degree(g), main = "Degree distribution general graph", xlab = "Degree")
+# CCDF (general)
+plot(ccdf(degree(g)), log = "xy", type = "l", main = "CCDF of general graph",
+     xlab = "Degree", ylab = "CCDF")
+
+# Degree distribution (1994)
+hist(degree(g_yearly[["1994"]]), main = "Degree distribution 1994 graph",
+     xlab = "Degree")
+# CCDF (general)
+plot(ccdf(degree(g_yearly[["1994"]])), log = "xy", type = "l", main = "CCDF of 1994 graph",
+     xlab = "Degree", ylab = "CCDF")
+
+# Degree distribution (2007)
+hist(degree(g_yearly[["2007"]]), main = "Degree distribution 2007 graph", xlab = "Degree")
+# CCDF (general)
+plot(ccdf(degree((g_yearly[["2007"]]))), log = "xy", type = "l", main = "CCDF of 2007 graph",
+     xlab = "Degree", ylab = "CCDF")
+
+# Degree distribution (2020)
+hist(degree(g_yearly[["2020"]]), main = "Degree distribution 2020 graph", xlab = "Degree")
+# CCDF (general)
+plot(ccdf(degree(g_yearly[["2020"]])), log = "xy", type = "l", main = "CCDF of 2020 graph",
+     xlab = "Degree", ylab = "CCDF")
+```
+
+Looking at the plots we can say that the general graph has almost a degree distribution power law. It is not perfect, but it is something like that.
+On the other hand the annual graphs do not have a power law distribution. The graph of 1994 has a distribution that is right asymmetric, but not like a power law. While the other 2 analyzed graphs have a distribution which is slightly asymmetric, but definitely not a power law. These last two are more similar to a poisson distribution.
+
+## Conclusion
+
+In conclusion we can say that the general graph and the annual graphs have some similarities, but also have some differences.
+Starting with the last things that was analyzed, we saw that the general graph is a small world network with a power law (almost) degree distribution, while the annual graphs are small world networks but definitely do not have power law degree distribution (some graphs are closer to a power law, others to a poisson).
+We saw that all graphs are pretty resilient, both the general and the annuals are more susceptible to degree and betweenness centrality, but the annual graphs tend to be slightly more resilient. The pagerank attack, instead, is the best handled by every graph, but still a little more effective than the random attack.
+Looking at the evolution over the years, we can see that the degree centrality and the pagerank increased, while the betweenness decreases. This means that the work the FIA is doing to increase the overtakes and the show of the Formula 1 is working.
+This is shown also by the modularity and communities: during the years the communities have become less isolated, there is still a division in groups of drivers that overtake each other more but it is less defined. In the last years the drivers tend to overtake more and drivers from all the grid.

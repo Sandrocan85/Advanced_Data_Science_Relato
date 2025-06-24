@@ -1,0 +1,405 @@
+Overtaker,Overtakee,Weight
+Vettel,Rosberg,7
+Maldonado,Grosjean,3
+Alonso,Maldonado,5
+Di Resta,Glock,6
+Petrov,Pic,9
+Vergne,Glock,7
+Perez,Kobayashi,7
+Kovalainen,Glock,8
+Petrov,Glock,7
+Maldonado,Massa,1
+Kobayashi,Perez,5
+Raikkonen,Perez,4
+Senna,Pic,6
+Kovalainen,Ricciardo,2
+Kovalainen,Pic,8
+Ricciardo,Pic,4
+Vettel,Vergne,5
+Massa,Petrov,6
+Senna,Glock,5
+Alonso,Vergne,3
+Rosberg,Vergne,5
+Webber,Vergne,3
+Hamilton,Perez,3
+Vettel,Perez,3
+Alonso,Perez,5
+Rosberg,Perez,4
+Webber,Perez,3
+Raikkonen,Kobayashi,2
+Raikkonen,Massa,4
+Kobayashi,Massa,3
+Di Resta,Massa,2
+Vergne,Massa,2
+Kobayashi,Raikkonen,4
+Ricciardo,Senna,8
+Senna,Ricciardo,5
+Vergne,Di Resta,5
+Ricciardo,Di Resta,4
+Kobayashi,Rosberg,2
+Rosberg,Kobayashi,5
+Di Resta,Vergne,4
+Ricciardo,Vergne,6
+Schumacher,Kovalainen,4
+Grosjean,Glock,5
+Grosjean,Pic,7
+Perez,Karthikeyan,2
+Perez,De La Rosa,3
+Grosjean,Kovalainen,7
+Grosjean,Ricciardo,2
+Ricciardo,Kovalainen,7
+Grosjean,Petrov,4
+Petrov,Kovalainen,8
+Di Resta,De La Rosa,4
+Schumacher,Vergne,3
+Button,Schumacher,4
+Button,Vergne,2
+Perez,Vergne,7
+Massa,Karthikeyan,3
+Rosberg,Karthikeyan,3
+Hulkenberg,Di Resta,2
+Kobayashi,De La Rosa,8
+Kobayashi,Ricciardo,6
+Massa,Vergne,4
+Alonso,Webber,4
+Vettel,Webber,4
+Webber,Vettel,2
+Di Resta,Karthikeyan,2
+Hulkenberg,Karthikeyan,2
+Maldonado,Hulkenberg,2
+Maldonado,Karthikeyan,2
+Schumacher,Karthikeyan,2
+Ricciardo,Karthikeyan,4
+Kovalainen,Karthikeyan,7
+Pic,Karthikeyan,5
+Alonso,Pic,2
+Alonso,Karthikeyan,2
+Hamilton,Karthikeyan,2
+Raikkonen,Webber,3
+Schumacher,De La Rosa,2
+Senna,De La Rosa,5
+Ricciardo,De La Rosa,3
+Kovalainen,De La Rosa,14
+Glock,De La Rosa,4
+Petrov,De La Rosa,8
+Button,Pic,1
+Schumacher,Kobayashi,5
+Ricciardo,Kobayashi,2
+Senna,Kobayashi,2
+Maldonado,Kovalainen,5
+Maldonado,Glock,3
+Raikkonen,Rosberg,3
+Button,Glock,2
+Webber,Rosberg,5
+Senna,Schumacher,2
+Senna,Hulkenberg,2
+Ricciardo,Glock,6
+Maldonado,Petrov,6
+Kobayashi,Schumacher,3
+Rosberg,Petrov,4
+Button,Ricciardo,1
+Button,Massa,3
+Button,Petrov,1
+Ricciardo,Massa,2
+Webber,Kobayashi,6
+Maldonado,Schumacher,2
+Ricciardo,Rosberg,6
+Senna,Di Resta,3
+Button,Rosberg,4
+Rosberg,Button,2
+Vergne,De La Rosa,5
+Vergne,Karthikeyan,6
+Vergne,Pic,8
+Webber,Glock,5
+Vergne,Petrov,7
+Webber,Petrov,7
+Kobayashi,Vergne,3
+Vettel,Glock,4
+Hamilton,Ricciardo,4
+Webber,Ricciardo,7
+Raikkonen,Ricciardo,3
+Hamilton,Kovalainen,3
+Webber,Kovalainen,4
+Raikkonen,Kovalainen,4
+Kobayashi,Kovalainen,6
+Hulkenberg,Petrov,5
+Petrov,Karthikeyan,5
+Vettel,Ricciardo,7
+Hulkenberg,De La Rosa,2
+Di Resta,Ricciardo,3
+Maldonado,Ricciardo,3
+Vergne,Kovalainen,9
+Rosberg,Massa,2
+Hulkenberg,Kovalainen,6
+Perez,Grosjean,3
+Grosjean,Perez,2
+Hulkenberg,Glock,3
+Hulkenberg,Pic,4
+Maldonado,Di Resta,2
+Ricciardo,Petrov,5
+Grosjean,Kobayashi,2
+Button,Maldonado,5
+Button,Senna,5
+Hamilton,Massa,2
+Hamilton,Di Resta,3
+Webber,Massa,3
+Button,Perez,3
+Maldonado,Senna,3
+Hamilton,Senna,4
+Webber,Di Resta,6
+Webber,Senna,4
+Button,Vettel,2
+Hamilton,Maldonado,2
+Webber,Maldonado,2
+Alonso,Di Resta,2
+Button,Grosjean,3
+Perez,Alonso,3
+Webber,Grosjean,1
+Senna,Grosjean,3
+Grosjean,Maldonado,3
+Kobayashi,Di Resta,4
+Vergne,Ricciardo,9
+Vettel,Raikkonen,3
+Button,Raikkonen,2
+Webber,Raikkonen,2
+Hamilton,Webber,3
+Hamilton,Raikkonen,5
+Senna,Raikkonen,1
+Grosjean,Senna,2
+Grosjean,Raikkonen,2
+Maldonado,Raikkonen,3
+Alonso,Raikkonen,3
+Perez,Raikkonen,4
+Di Resta,Raikkonen,3
+Massa,Raikkonen,5
+Maldonado,Alonso,1
+Hamilton,Vettel,3
+Di Resta,Senna,1
+Ricciardo,Maldonado,3
+Petrov,Maldonado,2
+Schumacher,Ricciardo,6
+Schumacher,Petrov,6
+Grosjean,Webber,1
+Di Resta,Perez,3
+Grosjean,Hamilton,3
+Raikkonen,Button,2
+Maldonado,Vergne,3
+Raikkonen,Alonso,1
+Kobayashi,Senna,3
+Rosberg,Pic,3
+Massa,Pic,4
+Alonso,Petrov,2
+Rosberg,Hamilton,1
+Hamilton,Rosberg,3
+Schumacher,Glock,7
+Perez,Pic,5
+Schumacher,Senna,1
+Hulkenberg,Ricciardo,3
+Button,Alonso,2
+Maldonado,Pic,3
+Schumacher,Pic,3
+Vettel,Di Resta,3
+Hulkenberg,Senna,3
+Grosjean,Di Resta,2
+Hamilton,Alonso,4
+Petrov,Ricciardo,1
+Maldonado,Perez,1
+Di Resta,Maldonado,3
+Perez,Ricciardo,3
+Raikkonen,Grosjean,1
+Alonso,Rosberg,1
+Rosberg,Alonso,2
+Hamilton,Vergne,2
+Button,Kobayashi,1
+Schumacher,Hulkenberg,5
+Button,Di Resta,2
+Di Resta,Hulkenberg,1
+Alonso,Kobayashi,2
+Hulkenberg,Vergne,2
+Hamilton,Kobayashi,1
+Massa,Kobayashi,2
+Hulkenberg,Kobayashi,2
+Rosberg,Di Resta,5
+Button,Hulkenberg,2
+Hamilton,Petrov,2
+Hamilton,Glock,1
+Webber,Karthikeyan,4
+Webber,De La Rosa,3
+Webber,Pic,5
+Hamilton,Hulkenberg,2
+Kobayashi,Glock,4
+Massa,Glock,4
+Rosberg,Senna,4
+Rosberg,Kovalainen,3
+Grosjean,Rosberg,5
+Kovalainen,Perez,1
+Di Resta,Webber,2
+Vergne,Webber,1
+Massa,Webber,3
+Hulkenberg,Webber,3
+Perez,Glock,3
+Perez,Petrov,2
+Kobayashi,Button,3
+Massa,Perez,2
+Vettel,Button,4
+Massa,Di Resta,5
+Vettel,Hamilton,2
+Vergne,Perez,2
+Raikkonen,Pic,2
+Hulkenberg,Raikkonen,2
+Perez,Kovalainen,3
+Massa,Rosberg,3
+Kovalainen,Senna,1
+Di Resta,Rosberg,2
+Vergne,Senna,4
+Massa,Senna,4
+Massa,Schumacher,3
+Massa,Kovalainen,3
+Senna,Kovalainen,6
+Button,Kovalainen,1
+Pic,Glock,2
+Massa,Maldonado,2
+Hulkenberg,Button,2
+Rosberg,Raikkonen,4
+Hulkenberg,Maldonado,3
+Perez,Massa,3
+Perez,Rosberg,3
+Grosjean,Alonso,1
+Vettel,Alonso,1
+Perez,Senna,4
+Senna,Perez,2
+Alonso,Hulkenberg,2
+Raikkonen,Maldonado,2
+Hamilton,Schumacher,2
+Alonso,Senna,2
+Alonso,Schumacher,2
+Raikkonen,Senna,1
+Raikkonen,Di Resta,2
+Di Resta,Petrov,7
+Ricciardo,Perez,2
+Kobayashi,Petrov,2
+Schumacher,Rosberg,1
+Alonso,Grosjean,1
+Maldonado,Rosberg,1
+Hulkenberg,Rosberg,2
+Maldonado,Webber,1
+Perez,Button,1
+Schumacher,Button,1
+Webber,Button,1
+Massa,De La Rosa,4
+Pic,De La Rosa,6
+Petrov,Massa,1
+Schumacher,Perez,1
+Schumacher,Di Resta,4
+Raikkonen,Hamilton,2
+Webber,Hulkenberg,3
+Kobayashi,Grosjean,1
+Grosjean,Karthikeyan,3
+Grosjean,De La Rosa,2
+Kobayashi,Hulkenberg,2
+Massa,Button,1
+Alonso,Hamilton,2
+Raikkonen,Schumacher,7
+Maldonado,De La Rosa,2
+Hamilton,Button,4
+Grosjean,Button,2
+Schumacher,Hamilton,1
+Webber,Alonso,1
+Kovalainen,Petrov,4
+Rosberg,Ricciardo,3
+Perez,Di Resta,3
+Raikkonen,Petrov,2
+Raikkonen,Hulkenberg,3
+Perez,Maldonado,3
+Hamilton,De La Rosa,1
+Vettel,Kobayashi,4
+Senna,Karthikeyan,4
+Kobayashi,Maldonado,1
+Di Resta,Kobayashi,2
+Rosberg,Maldonado,2
+Perez,Hulkenberg,2
+Hulkenberg,Perez,3
+Kobayashi,Webber,2
+Vergne,Maldonado,2
+De La Rosa,Glock,1
+Massa,Ricciardo,5
+Kobayashi,Karthikeyan,5
+Kobayashi,Pic,7
+Glock,Karthikeyan,2
+Vettel,Kovalainen,5
+De La Rosa,Pic,1
+Vettel,Massa,3
+Schumacher,Raikkonen,3
+Vettel,Senna,5
+Senna,Massa,1
+Hulkenberg,Schumacher,4
+Vergne,Rosberg,3
+Glock,Pic,2
+De La Rosa,Kovalainen,1
+Vettel,Schumacher,2
+Senna,Rosberg,3
+Hulkenberg,D'ambrosio,1
+Schumacher,D'ambrosio,1
+Raikkonen,D'ambrosio,1
+Alonso,Ricciardo,1
+Rosberg,D'ambrosio,1
+Webber,D'ambrosio,1
+Di Resta,D'ambrosio,1
+Kobayashi,D'ambrosio,1
+Maldonado,D'ambrosio,1
+Alonso,Vettel,1
+D'ambrosio,Petrov,1
+D'ambrosio,Kovalainen,1
+Alonso,Massa,2
+Schumacher,Webber,2
+Vettel,Hulkenberg,1
+Karthikeyan,Pic,1
+Perez,Hamilton,1
+Senna,Petrov,3
+Raikkonen,Vergne,1
+Vergne,Grosjean,1
+De La Rosa,Karthikeyan,2
+Di Resta,Kovalainen,4
+Ricciardo,Schumacher,3
+Massa,Hamilton,1
+Vergne,Schumacher,1
+Grosjean,Hulkenberg,2
+Di Resta,Schumacher,3
+Hulkenberg,Hamilton,1
+Hulkenberg,Grosjean,1
+Perez,Schumacher,2
+Alonso,Button,1
+Senna,Maldonado,1
+Maldonado,Kobayashi,1
+Vettel,Karthikeyan,3
+Senna,Vettel,1
+Vettel,Pic,5
+Vettel,Petrov,4
+Rosberg,De La Rosa,3
+Vettel,De La Rosa,3
+Vettel,Grosjean,2
+Di Resta,Pic,1
+Grosjean,Vettel,1
+Di Resta,Grosjean,1
+Grosjean,Schumacher,1
+Pic,Kovalainen,2
+Maldonado,Button,2
+Ricciardo,Grosjean,1
+Massa,Hulkenberg,1
+Senna,Button,1
+Di Resta,Alonso,1
+Ricciardo,Raikkonen,2
+Hulkenberg,Massa,1
+Button,Hamilton,2
+Glock,Petrov,3
+Alonso,De La Rosa,1
+Alonso,Kovalainen,1
+Alonso,Glock,1
+Glock,Kovalainen,1
+Raikkonen,Karthikeyan,1
+Kobayashi,Vettel,1
+Kobayashi,Alonso,1
+Massa,Vettel,1
+Webber,Schumacher,1
+Petrov,Rosberg,1
+Kovalainen,Rosberg,2

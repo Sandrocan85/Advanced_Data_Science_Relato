@@ -1,0 +1,188 @@
+Overtaker,Overtakee,Weight
+Trulli,Villeneuve,3
+Wurz,Zanardi,1
+M.Schumacher,Zanardi,1
+M.Schumacher,Panis,1
+Barrichello,Panis,2
+Barrichello,Zanardi,3
+Panis,Zanardi,1
+Barrichello,Gene,1
+De La Rosa,Badoer,1
+M.Schumacher,Wurz,1
+Takagi,Badoer,4
+M.Schumacher,Badoer,1
+M.Schumacher,Takagi,1
+Wurz,Badoer,1
+Barrichello,Badoer,2
+Barrichello,Wurz,2
+Barrichello,Takagi,3
+Panis,Badoer,2
+M.Schumacher,De La Rosa,1
+Zanardi,Badoer,3
+Barrichello,De La Rosa,3
+R.Schumacher,Frentzen,1
+Frentzen,R.Schumacher,1
+Trulli,R.Schumacher,1
+Trulli,Fisichella,1
+Diniz,De La Rosa,2
+Wurz,Takagi,2
+Zonta,Takagi,3
+Zonta,Panis,2
+Zanardi,Gene,5
+Barrichello,Diniz,1
+Wurz,De La Rosa,1
+Zonta,De La Rosa,4
+Panis,Takagi,2
+Takagi,Panis,1
+Barrichello,Zonta,2
+Fisichella,De La Rosa,1
+Fisichella,Badoer,2
+Fisichella,Takagi,2
+Zanardi,Sarrazin,1
+De La Rosa,Sarrazin,1
+Gene,Sarrazin,1
+Takagi,Sarrazin,1
+Villeneuve,Sarrazin,1
+Villeneuve,De La Rosa,2
+Villeneuve,Gene,2
+Villeneuve,Takagi,1
+Alesi,Gene,2
+Alesi,Takagi,3
+Alesi,De La Rosa,3
+Alesi,Diniz,4
+Alesi,Villeneuve,4
+Zanardi,De La Rosa,1
+Zanardi,Villeneuve,1
+Zanardi,Takagi,3
+Sarrazin,Takagi,1
+Alesi,Trulli,3
+Zanardi,Diniz,1
+Alesi,R.Schumacher,2
+Sarrazin,Gene,1
+Panis,Gene,3
+Alesi,Frentzen,1
+Panis,Sarrazin,1
+Alesi,Fisichella,4
+Panis,Villeneuve,2
+Panis,De La Rosa,2
+Barrichello,Irvine,1
+Gene,Takagi,2
+Diniz,Fisichella,2
+Panis,Salo,1
+Takagi,Salo,1
+Alesi,Salo,2
+Diniz,Zanardi,1
+R.Schumacher,De La Rosa,1
+R.Schumacher,Gene,1
+Wurz,Fisichella,1
+Salo,Wurz,1
+Zanardi,Fisichella,1
+Irvine,Barrichello,1
+Hill,Barrichello,1
+Coulthard,Fisichella,1
+Zanardi,Panis,1
+R.Schumacher,Diniz,1
+Herbert,Diniz,2
+Irvine,Takagi,2
+Frentzen,Fisichella,1
+Irvine,Zanardi,2
+Irvine,Diniz,1
+Irvine,Herbert,1
+Irvine,R.Schumacher,1
+Coulthard,Alesi,1
+Hakkinen,Fisichella,2
+R.Schumacher,Villeneuve,2
+Zanardi,Zonta,1
+Gene,Badoer,1
+Hakkinen,Trulli,3
+Badoer,Gene,2
+Hakkinen,Panis,3
+Coulthard,Barrichello,1
+R.Schumacher,Wurz,1
+Irvine,Hill,1
+Hakkinen,M.Schumacher,1
+Irvine,Zonta,4
+Irvine,Villeneuve,2
+Hakkinen,Frentzen,4
+Irvine,Wurz,1
+Zonta,Zanardi,2
+R.Schumacher,Fisichella,1
+Hakkinen,Alesi,2
+Irvine,Fisichella,3
+Gene,De La Rosa,1
+Irvine,Badoer,1
+Irvine,De La Rosa,1
+Badoer,De La Rosa,2
+M.Schumacher,Frentzen,1
+R.Schumacher,Trulli,1
+Irvine,Hakkinen,2
+Irvine,Trulli,1
+M.Schumacher,Barrichello,1
+R.Schumacher,Panis,1
+Hakkinen,Barrichello,3
+Irvine,Panis,3
+R.Schumacher,M.Schumacher,1
+Zonta,Wurz,2
+Alesi,Panis,1
+Barrichello,Villeneuve,2
+Hakkinen,Takagi,2
+Hakkinen,Gene,3
+Barrichello,Hill,1
+Barrichello,Trulli,1
+Herbert,Panis,1
+Zonta,Trulli,1
+Alesi,Hill,2
+Hakkinen,Zanardi,1
+Hakkinen,De La Rosa,2
+Hakkinen,Hill,1
+Diniz,Villeneuve,1
+Alesi,Wurz,5
+Hakkinen,Wurz,1
+Alesi,Zonta,2
+Hakkinen,Zonta,1
+Hakkinen,Villeneuve,1
+Wurz,Zonta,1
+Trulli,Zonta,2
+Hill,Zonta,1
+Salo,Panis,1
+Barrichello,Frentzen,1
+Herbert,Trulli,1
+Herbert,Hill,1
+Hill,Herbert,1
+Panis,Trulli,2
+Alesi,Badoer,1
+Coulthard,Panis,2
+Herbert,Wurz,2
+Coulthard,Wurz,1
+De La Rosa,Zanardi,1
+Badoer,Zanardi,1
+Panis,Wurz,4
+Panis,Diniz,1
+Badoer,Diniz,1
+Alesi,Herbert,2
+Trulli,Wurz,2
+Fisichella,Herbert,1
+Hill,Fisichella,1
+Hakkinen,R.Schumacher,1
+Wurz,Herbert,1
+Salo,Irvine,1
+Diniz,Wurz,1
+Herbert,Badoer,1
+Trulli,Panis,1
+Wurz,Panis,1
+Barrichello,Coulthard,2
+Herbert,Zonta,1
+R.Schumacher,Zanardi,1
+Barrichello,Salo,1
+Salo,Zanardi,1
+R.Schumacher,Coulthard,1
+Villeneuve,Hakkinen,1
+Badoer,Hakkinen,1
+Irvine,Gene,2
+Trulli,Irvine,1
+Trulli,Barrichello,1
+Zonta,Hakkinen,1
+Badoer,Villeneuve,1
+Coulthard,M.Schumacher,1
+Diniz,Panis,1
+Diniz,Gene,1

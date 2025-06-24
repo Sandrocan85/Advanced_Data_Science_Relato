@@ -1,0 +1,225 @@
+Overtaker,Overtakee,Weight
+Verstappen,Irvine,5
+De La Rosa,Fisichella,2
+Alesi,Mazzacane,3
+De La Rosa,Irvine,4
+Wurz,Button,2
+Alesi,Heidfeld,6
+Alesi,Diniz,2
+Salo,Zonta,4
+Zonta,Salo,2
+M.Schumacher,Hakkinen,3
+Trulli,Zonta,2
+Alesi,Button,2
+De La Rosa,Heidfeld,2
+Verstappen,Villeneuve,3
+Alesi,R.Schumacher,2
+Trulli,Frentzen,4
+Verstappen,Zonta,2
+Alesi,Villeneuve,2
+Trulli,Fisichella,1
+Verstappen,Frentzen,1
+Alesi,Zonta,1
+R.Schumacher,Villeneuve,5
+Button,Villeneuve,1
+Verstappen,Fisichella,4
+Alesi,Frentzen,1
+Barrichello,Hakkinen,2
+De La Rosa,Herbert,1
+Trulli,Irvine,1
+De La Rosa,Button,2
+Zonta,Mazzacane,5
+Button,Verstappen,1
+Alesi,De La Rosa,2
+Salo,Alesi,1
+Wurz,De La Rosa,1
+De La Rosa,Diniz,2
+Wurz,Diniz,2
+Herbert,Diniz,1
+Wurz,Zonta,2
+Coulthard,Barrichello,2
+R.Schumacher,Frentzen,1
+Button,Frentzen,1
+Trulli,Heidfeld,1
+Coulthard,R.Schumacher,1
+Coulthard,M.Schumacher,2
+Barrichello,R.Schumacher,2
+Barrichello,M.Schumacher,1
+R.Schumacher,M.Schumacher,1
+Trulli,Herbert,1
+De La Rosa,Verstappen,1
+Gene,Salo,1
+Fisichella,R.Schumacher,1
+De La Rosa,R.Schumacher,1
+Fisichella,Villeneuve,1
+Barrichello,Coulthard,1
+Irvine,R.Schumacher,1
+Alesi,Wurz,6
+Button,Wurz,1
+R.Schumacher,De La Rosa,1
+R.Schumacher,Irvine,1
+M.Schumacher,Alesi,1
+M.Schumacher,Button,2
+Coulthard,Alesi,1
+Coulthard,Button,3
+Hakkinen,Button,1
+Fisichella,Button,1
+Herbert,R.Schumacher,1
+Fisichella,De La Rosa,1
+Diniz,Mazzacane,4
+Hakkinen,Coulthard,1
+Barrichello,Verstappen,2
+Barrichello,Irvine,2
+Barrichello,De La Rosa,2
+Button,Zonta,2
+R.Schumacher,Herbert,1
+Barrichello,Fisichella,2
+Wurz,Alesi,2
+Diniz,Zonta,2
+Verstappen,Heidfeld,2
+De La Rosa,Frentzen,1
+De La Rosa,Salo,3
+Barrichello,Villeneuve,2
+Hakkinen,Villeneuve,2
+Coulthard,Villeneuve,2
+R.Schumacher,Verstappen,1
+Verstappen,R.Schumacher,4
+Verstappen,Wurz,4
+Verstappen,Trulli,1
+Villeneuve,Coulthard,1
+Trulli,R.Schumacher,2
+R.Schumacher,Trulli,4
+Fisichella,Heidfeld,1
+Button,Irvine,2
+Heidfeld,Fisichella,1
+Button,Salo,3
+Fisichella,Mazzacane,1
+Irvine,Mazzacane,2
+Irvine,Diniz,2
+Irvine,Heidfeld,1
+Barrichello,Button,1
+Frentzen,Button,1
+Heidfeld,Mazzacane,2
+Villeneuve,Mazzacane,3
+Burti,Mazzacane,1
+R.Schumacher,Mazzacane,2
+Barrichello,Herbert,4
+Zonta,Burti,1
+Barrichello,Salo,1
+Diniz,Burti,1
+Verstappen,Mazzacane,2
+Heidfeld,Wurz,1
+Villeneuve,Wurz,2
+Diniz,Alesi,1
+Zonta,Alesi,1
+Villeneuve,Gene,1
+Diniz,Wurz,1
+Herbert,Irvine,1
+Barrichello,Zonta,1
+Frentzen,Diniz,1
+Frentzen,Salo,1
+Frentzen,Heidfeld,1
+Frentzen,R.Schumacher,2
+Frentzen,Wurz,1
+Frentzen,Zonta,1
+Frentzen,Villeneuve,1
+Frentzen,Irvine,1
+Frentzen,Verstappen,1
+Frentzen,Herbert,1
+R.Schumacher,Zonta,1
+Diniz,Salo,1
+Verstappen,Herbert,1
+Diniz,Heidfeld,2
+Salo,Heidfeld,1
+Barrichello,Trulli,1
+Salo,Diniz,4
+Villeneuve,Irvine,2
+Villeneuve,R.Schumacher,1
+Wurz,Salo,1
+Heidfeld,Verstappen,1
+R.Schumacher,Heidfeld,2
+Coulthard,Frentzen,1
+Button,Mazzacane,1
+De La Rosa,Trulli,2
+Salo,De La Rosa,2
+Salo,Button,2
+Button,De La Rosa,2
+Hakkinen,Frentzen,2
+Frentzen,Hakkinen,1
+Coulthard,Salo,1
+Irvine,Button,2
+Villeneuve,De La Rosa,1
+Herbert,Fisichella,1
+Villeneuve,Fisichella,1
+M.Schumacher,Barrichello,1
+Villeneuve,Zonta,1
+Villeneuve,Herbert,2
+Trulli,Button,2
+Verstappen,Diniz,2
+Gene,Diniz,1
+Mazzacane,Diniz,1
+Button,Trulli,1
+M.Schumacher,Trulli,1
+R.Schumacher,Button,1
+Barrichello,Frentzen,1
+Wurz,Verstappen,1
+Salo,Irvine,1
+Barrichello,Alesi,1
+Wurz,Mazzacane,2
+Wurz,Gene,1
+Hakkinen,M.Schumacher,1
+Zonta,Diniz,3
+Zonta,Heidfeld,1
+Zonta,Wurz,1
+Zonta,Gene,2
+Zonta,R.Schumacher,1
+Zonta,Fisichella,1
+Salo,Mazzacane,2
+Zonta,Verstappen,1
+Salo,Gene,1
+Salo,Wurz,1
+Diniz,Gene,1
+Irvine,Wurz,1
+Gene,Fisichella,1
+De La Rosa,Wurz,1
+Button,Alesi,1
+M.Schumacher,Coulthard,1
+Button,Heidfeld,1
+Trulli,Alesi,1
+Herbert,Zonta,1
+R.Schumacher,Barrichello,1
+De La Rosa,Zonta,1
+Verstappen,Barrichello,1
+Button,Barrichello,1
+Button,Herbert,1
+Alesi,Salo,1
+Herbert,Barrichello,1
+Herbert,Villeneuve,1
+Irvine,Zonta,1
+Barrichello,Diniz,1
+Irvine,De La Rosa,1
+Coulthard,Gene,1
+Coulthard,Zonta,1
+Heidfeld,Alesi,1
+Coulthard,Irvine,1
+Coulthard,De La Rosa,1
+Coulthard,Diniz,1
+Button,R.Schumacher,1
+Heidfeld,Trulli,1
+Diniz,Trulli,1
+Zonta,Herbert,1
+Zonta,Button,1
+Verstappen,Gene,1
+Trulli,Mazzacane,3
+Salo,Herbert,2
+Gene,R.Schumacher,1
+Alesi,Gene,1
+Hakkinen,Mazzacane,1
+Verstappen,Button,1
+Hakkinen,R.Schumacher,1
+Hakkinen,Gene,1
+Hakkinen,Fisichella,1
+Hakkinen,Irvine,1
+Hakkinen,Wurz,1
+Fisichella,Zonta,1
+R.Schumacher,Gene,1

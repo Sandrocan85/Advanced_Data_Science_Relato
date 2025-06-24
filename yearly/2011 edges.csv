@@ -1,0 +1,392 @@
+Overtaker,Overtakee,Weight
+Alonso,Kobayashi,3
+Barrichello,Trulli,8
+Barrichello,D'Ambrosio,2
+Barrichello,Glock,6
+Barrichello,Kovalainen,11
+Barrichello,Maldonado,4
+Alonso,Rosberg,6
+Maldonado,Kovalainen,9
+Barrichello,Perez,4
+Buemi,Di Resta,10
+Alguersuari,D'Ambrosio,5
+Alguersuari,Glock,3
+Alguersuari,Trulli,6
+Glock,D'Ambrosio,3
+Maldonado,Perez,4
+Alonso,Massa,4
+Alguersuari,Kovalainen,8
+Barrichello,Heidfeld,2
+Alonso,Heidfeld,3
+Webber,Kobayashi,6
+Vettel,Button,4
+Buemi,Sutil,3
+Di Resta,Sutil,1
+Barrichello,Kobayashi,5
+Button,Buemi,5
+Button,Kobayashi,2
+Perez,Di Resta,5
+Button,Massa,8
+Alguersuari,Heidfeld,2
+Massa,Buemi,3
+Di Resta,Rosberg,4
+Rosberg,Di Resta,5
+Trulli,Glock,8
+Kobayashi,Webber,3
+Massa,Petrov,4
+Buemi,Alguersuari,7
+Sutil,Karthikeyan,3
+Sutil,Liuzzi,3
+Webber,Trulli,2
+Sutil,D'Ambrosio,4
+Kobayashi,Schumacher,4
+Webber,Kovalainen,2
+Di Resta,Glock,4
+Sutil,Glock,5
+Buemi,Schumacher,4
+Hamilton,Buemi,5
+Hamilton,Schumacher,7
+Heidfeld,Alguersuari,4
+Perez,Rosberg,2
+Webber,Perez,3
+Webber,Rosberg,5
+Massa,Rosberg,11
+Webber,Alguersuari,2
+Massa,Alguersuari,6
+Massa,Perez,4
+Hamilton,Kobayashi,5
+Perez,Alguersuari,3
+Di Resta,Perez,4
+Di Resta,Alguersuari,7
+Rosberg,D'Ambrosio,3
+Alonso,Button,2
+Schumacher,Perez,6
+Rosberg,Alguersuari,9
+Massa,Webber,2
+Webber,Schumacher,5
+Hamilton,Petrov,4
+Button,Petrov,5
+Vettel,Massa,4
+Schumacher,Alguersuari,7
+Rosberg,Buemi,3
+Petrov,Kobayashi,9
+Sutil,Alguersuari,4
+Heidfeld,Petrov,4
+Alonso,Hamilton,4
+Webber,Massa,6
+Heidfeld,Hamilton,1
+Schumacher,Di Resta,5
+Maldonado,Trulli,5
+Glock,Liuzzi,6
+Kobayashi,Alguersuari,4
+D'Ambrosio,Liuzzi,6
+Webber,Barrichello,3
+Petrov,Alguersuari,2
+Perez,Barrichello,4
+Alguersuari,Buemi,6
+Heidfeld,Buemi,2
+Perez,Webber,1
+Kovalainen,Maldonado,2
+Barrichello,Webber,1
+Trulli,Maldonado,1
+Perez,Buemi,3
+Schumacher,Kovalainen,5
+Webber,Glock,1
+Webber,D'Ambrosio,1
+Maldonado,Karthikeyan,3
+Rosberg,Heidfeld,1
+Di Resta,Kovalainen,8
+Webber,Buemi,3
+Vettel,Hamilton,1
+Maldonado,D'Ambrosio,5
+Massa,Hamilton,3
+Rosberg,Petrov,4
+Vettel,Heidfeld,1
+Schumacher,Barrichello,1
+Maldonado,Glock,6
+Button,Heidfeld,2
+Massa,Heidfeld,3
+Hamilton,Heidfeld,1
+Hamilton,Perez,3
+Di Resta,Barrichello,3
+Sutil,Kovalainen,5
+Kobayashi,Kovalainen,3
+Vettel,Petrov,3
+Buemi,Karthikeyan,1
+Schumacher,Heidfeld,3
+Petrov,Kovalainen,5
+Perez,Trulli,6
+Perez,Kovalainen,8
+Heidfeld,Trulli,3
+Buemi,D'Ambrosio,3
+Buemi,Kovalainen,7
+Glock,Karthikeyan,2
+Alonso,Schumacher,3
+Button,Di Resta,3
+Hamilton,Di Resta,3
+Rosberg,Alonso,2
+Button,Alonso,5
+Hamilton,Alonso,3
+Kobayashi,Sutil,4
+Schumacher,Petrov,10
+Webber,Petrov,5
+Alonso,Perez,2
+Hamilton,Button,7
+Alonso,Petrov,2
+Buemi,Trulli,5
+Buemi,Maldonado,7
+Hamilton,Rosberg,8
+Petrov,Heidfeld,1
+Perez,Heidfeld,2
+Hamilton,Massa,9
+Rosberg,Massa,5
+Button,Rosberg,7
+Webber,Alonso,8
+Perez,Petrov,5
+Hamilton,Vettel,1
+Petrov,Di Resta,6
+Kobayashi,Di Resta,5
+Liuzzi,Karthikeyan,4
+Webber,Button,6
+Petrov,Schumacher,1
+Alguersuari,Liuzzi,3
+Kobayashi,Trulli,5
+D'Ambrosio,Karthikeyan,2
+Button,Hamilton,6
+Heidfeld,Barrichello,2
+Kobayashi,Maldonado,7
+Schumacher,Karthikeyan,2
+Schumacher,Liuzzi,2
+Schumacher,D'Ambrosio,4
+Hamilton,Maldonado,1
+Massa,Maldonado,7
+Petrov,Trulli,4
+Alguersuari,Maldonado,6
+Heidfeld,Kovalainen,4
+Schumacher,Trulli,6
+Sutil,Trulli,4
+Perez,Liuzzi,6
+Perez,Karthikeyan,2
+Rosberg,Kobayashi,5
+Barrichello,Schumacher,2
+Di Resta,Trulli,4
+Sutil,Schumacher,3
+Perez,D'Ambrosio,6
+Trulli,Liuzzi,5
+Trulli,D'Ambrosio,4
+Kobayashi,Barrichello,4
+Alguersuari,Perez,5
+Kovalainen,D'Ambrosio,8
+Schumacher,Maldonado,4
+Kobayashi,Buemi,5
+Buemi,Kobayashi,6
+Heidfeld,Di Resta,1
+Petrov,Sutil,2
+Massa,Sutil,2
+Di Resta,Maldonado,4
+Alonso,Webber,4
+Sutil,Kobayashi,4
+Schumacher,Sutil,3
+Schumacher,Kobayashi,4
+Kobayashi,Massa,2
+Massa,Kobayashi,6
+Rosberg,Barrichello,4
+Perez,Maldonado,8
+Petrov,Barrichello,2
+Alguersuari,Kobayashi,4
+Massa,Schumacher,6
+Massa,Barrichello,2
+Alguersuari,Barrichello,4
+Trulli,Kovalainen,1
+Sutil,Barrichello,2
+Schumacher,Massa,3
+Rosberg,Button,2
+Alguersuari,Schumacher,1
+Perez,Sutil,1
+Sutil,Perez,5
+Petrov,Buemi,3
+Barrichello,Liuzzi,3
+Liuzzi,Perez,1
+Maldonado,Barrichello,6
+Vettel,Rosberg,4
+Maldonado,Sutil,3
+Kobayashi,Karthikeyan,1
+Rosberg,Kovalainen,1
+Massa,Kovalainen,4
+Buemi,Heidfeld,1
+Kobayashi,Glock,5
+Kobayashi,D'Ambrosio,3
+Rosberg,Trulli,2
+Massa,Trulli,2
+Karthikeyan,Sutil,1
+Barrichello,Karthikeyan,4
+Kobayashi,Liuzzi,2
+Button,Schumacher,4
+Maldonado,Heidfeld,1
+Di Resta,Heidfeld,2
+Massa,Di Resta,3
+Heidfeld,Kobayashi,4
+Alguersuari,Sutil,3
+Buemi,Perez,3
+Button,Webber,4
+Heidfeld,Sutil,3
+Heidfeld,Maldonado,4
+Di Resta,Buemi,7
+Kobayashi,Petrov,3
+Perez,Massa,1
+Heidfeld,Massa,1
+Heidfeld,Perez,3
+Sutil,Buemi,2
+Maldonado,Rosberg,2
+Petrov,Rosberg,1
+Hamilton,Alguersuari,2
+Hamilton,Trulli,1
+Schumacher,Rosberg,2
+Di Resta,D'Ambrosio,5
+Webber,Sutil,5
+Alguersuari,Rosberg,3
+Maldonado,Petrov,3
+Rosberg,Hamilton,1
+Schumacher,Button,1
+Schumacher,Hamilton,4
+Di Resta,Petrov,4
+Alguersuari,Karthikeyan,1
+Kobayashi,Heidfeld,1
+Webber,Di Resta,2
+Barrichello,Buemi,1
+Petrov,Maldonado,1
+Webber,Maldonado,2
+Trulli,De La Rosa,1
+Button,Maldonado,4
+De la Rosa,Trulli,1
+Liuzzi,D'Ambrosio,2
+Button,Sutil,5
+Button,Barrichello,2
+De la Rosa,Buemi,1
+Webber,Heidfeld,1
+Kovalainen,Trulli,2
+Sutil,Maldonado,4
+Buemi,Liuzzi,2
+Petrov,Button,1
+Buemi,Glock,6
+Button,De La Rosa,2
+Button,Karthikeyan,2
+Button,Trulli,3
+Button,D'Ambrosio,3
+Barrichello,Alguersuari,2
+Maldonado,Alguersuari,4
+Barrichello,Rosberg,2
+De la Rosa,Glock,1
+Button,Liuzzi,2
+Schumacher,Webber,1
+De la Rosa,D'Ambrosio,1
+Button,Glock,1
+Di Resta,Karthikeyan,2
+Di Resta,Liuzzi,2
+Rosberg,Maldonado,3
+Button,Alguersuari,1
+Karthikeyan,Liuzzi,1
+Buemi,De La Rosa,1
+Di Resta,De La Rosa,1
+Liuzzi,Glock,2
+Karthikeyan,D'Ambrosio,1
+Karthikeyan,Glock,1
+D'Ambrosio,Glock,1
+Button,Vettel,2
+Maldonado,Liuzzi,3
+Kovalainen,Glock,5
+Alguersuari,Petrov,4
+Sutil,Heidfeld,3
+Petrov,Perez,4
+Kobayashi,Perez,4
+Di Resta,Kobayashi,3
+Massa,Button,1
+Buemi,Petrov,4
+Maldonado,Kobayashi,1
+Webber,Hamilton,5
+Heidfeld,Ricciardo,2
+Heidfeld,Chandhok,1
+Di Resta,Ricciardo,2
+Di Resta,Chandhok,1
+Heidfeld,D'Ambrosio,1
+Heidfeld,Glock,2
+Heidfeld,Liuzzi,1
+Alonso,Vettel,1
+Perez,Ricciardo,4
+Ricciardo,D'Ambrosio,4
+Hamilton,Webber,4
+Perez,Glock,4
+Massa,Vettel,1
+Buemi,Ricciardo,1
+Vettel,Kobayashi,2
+Kobayashi,Rosberg,1
+D'Ambrosio,Ricciardo,2
+Kovalainen,Heidfeld,1
+Glock,Heidfeld,1
+Buemi,Barrichello,4
+Alguersuari,Webber,1
+Glock,Barrichello,1
+Maldonado,Buemi,1
+Vettel,Alonso,3
+Ricciardo,Liuzzi,2
+Maldonado,Ricciardo,2
+Senna,Glock,5
+Webber,Ricciardo,1
+Schumacher,Ricciardo,1
+Vettel,Sutil,2
+Button,Ricciardo,1
+Alonso,Sutil,1
+Hamilton,Sutil,3
+Vettel,Webber,1
+Kovalainen,Liuzzi,1
+Button,Perez,1
+Trulli,Senna,2
+Senna,Liuzzi,3
+Senna,D'Ambrosio,3
+Perez,Senna,2
+Senna,Kovalainen,4
+Maldonado,Di Resta,1
+Schumacher,Alonso,2
+Senna,Sutil,1
+Alguersuari,Di Resta,3
+Senna,Buemi,2
+Senna,Maldonado,2
+Alonso,Barrichello,1
+Hamilton,Barrichello,2
+Barrichello,Petrov,2
+Massa,D'Ambrosio,1
+Hamilton,Kovalainen,1
+Alonso,Di Resta,1
+Rosberg,Perez,1
+Senna,Petrov,1
+Petrov,D'Ambrosio,2
+Trulli,Perez,1
+Maldonado,Senna,5
+Barrichello,Senna,2
+Schumacher,Senna,4
+Sutil,Rosberg,2
+Sutil,Senna,1
+Di Resta,Senna,1
+Alguersuari,Senna,3
+Kovalainen,Senna,2
+Sutil,Petrov,1
+Perez,Kobayashi,1
+Sutil,Di Resta,3
+Senna,Barrichello,1
+Rosberg,Sutil,2
+Trulli,Ricciardo,2
+Petrov,Alonso,1
+Senna,Kobayashi,2
+Kobayashi,Senna,2
+Kobayashi,Ricciardo,2
+Senna,Trulli,2
+Ricciardo,Karthikeyan,1
+Buemi,Senna,1
+Petrov,Karthikeyan,1
+Petrov,Ricciardo,1
+Buemi,Hamilton,1
+Barrichello,Ricciardo,1
+Kovalainen,Kobayashi,1
+Senna,Ricciardo,1
+Liuzzi,Ricciardo,1
+Alguersuari,Ricciardo,1
